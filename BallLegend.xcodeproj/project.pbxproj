@@ -19,6 +19,7 @@
 		32AE519121B5D2E000C76F6E /* BallLegendUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AE519021B5D2E000C76F6E /* BallLegendUITests.swift */; };
 		32AE51A121B5D4C100C76F6E /* buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32AE51A021B5D4C100C76F6E /* buzzer.mp3 */; };
 		32AE51A321B5D83400C76F6E /* BallElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AE51A221B5D83400C76F6E /* BallElements.swift */; };
+		32AE51A521B7269000C76F6E /* player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 32AE51A421B7269000C76F6E /* player.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		32AE519221B5D2E000C76F6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32AE51A021B5D4C100C76F6E /* buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buzzer.mp3; sourceTree = "<group>"; };
 		32AE51A221B5D83400C76F6E /* BallElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallElements.swift; sourceTree = "<group>"; };
+		32AE51A421B7269000C76F6E /* player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = player.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				32AE517021B5D2DE00C76F6E /* GameScene.swift */,
 				32AE51A221B5D83400C76F6E /* BallElements.swift */,
 				32AE517221B5D2DE00C76F6E /* GameViewController.swift */,
+				32AE51A421B7269000C76F6E /* player.atlas */,
 				32AE517421B5D2DE00C76F6E /* Main.storyboard */,
 				32AE517721B5D2E000C76F6E /* Assets.xcassets */,
 				32AE517921B5D2E000C76F6E /* LaunchScreen.storyboard */,
@@ -248,6 +251,7 @@
 				32AE516D21B5D2DE00C76F6E /* GameScene.sks in Resources */,
 				32AE51A121B5D4C100C76F6E /* buzzer.mp3 in Resources */,
 				32AE517821B5D2E000C76F6E /* Assets.xcassets in Resources */,
+				32AE51A521B7269000C76F6E /* player.atlas in Resources */,
 				32AE517B21B5D2E000C76F6E /* LaunchScreen.storyboard in Resources */,
 				32AE516F21B5D2DE00C76F6E /* Actions.sks in Resources */,
 			);
