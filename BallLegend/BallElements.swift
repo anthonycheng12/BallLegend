@@ -50,7 +50,7 @@ extension GameScene {
         scoreLabel.text = "\(score)"
         scoreLabel.zPosition = 5
         scoreLabel.fontSize = 50
-        scoreLabel.fontName = "HelveticaNeue-Bold"
+        scoreLabel.fontName = "Courier-BoldOblique"
         
         let scoreBg = SKShapeNode()
         scoreBg.position = CGPoint(x: 0, y: 0)
@@ -74,7 +74,7 @@ extension GameScene {
         }
         highscoreLabel.zPosition = 5
         highscoreLabel.fontSize = 15
-        highscoreLabel.fontName = "Helvetica-Bold"
+        highscoreLabel.fontName = "Courier-BoldOblique"
         return highscoreLabel
     }
     
@@ -129,7 +129,7 @@ extension GameScene {
         taptoplayLabel.fontColor = UIColor.white
         taptoplayLabel.zPosition = 5
         taptoplayLabel.fontSize = 20
-        taptoplayLabel.fontName = "HelveticaNeue"
+        taptoplayLabel.fontName = "Courier-BoldOblique"
         return taptoplayLabel
     }
     
