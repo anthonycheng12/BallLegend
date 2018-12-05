@@ -89,7 +89,6 @@ extension GameScene {
         logoImage.run(SKAction.scale(to: 1.0, duration: 0.3))
     }
     
-    // CHRIS'S CODE
     func createStephButton() {
         stephButton = SKSpriteNode()
         stephButton = SKSpriteNode(imageNamed: "steph")
@@ -119,7 +118,6 @@ extension GameScene {
         self.addChild(wadeButton)
         wadeButton.run(SKAction.scale(to: 1.0, duration: 0.3))
     }
-    //ENDS HERE
     
     // adds tap to play logo below the player
     func playGame() -> SKLabelNode {
@@ -134,7 +132,7 @@ extension GameScene {
     }
     
     func createObstacles() -> SKNode  {
-        // 1
+
         let bball = SKSpriteNode(imageNamed: "ball")
         bball.size = CGSize(width: 40, height: 40)
         bball.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 2)
@@ -145,7 +143,7 @@ extension GameScene {
         bball.physicsBody?.collisionBitMask = 0
         bball.physicsBody?.contactTestBitMask = CollisionBitMask.playerCategory // contact with player will increase point by 1
         bball.color = SKColor.white
-        // 2
+
         obstaclePair = SKNode()
         obstaclePair.name = "obstaclePair"
         
@@ -178,7 +176,7 @@ extension GameScene {
         obstaclePair.addChild(botObs)
         
         obstaclePair.zPosition = 1
-        // 3
+
         let randomPosition = CGFloat.random(min: -175, max: 200) // higher the number the longer the obstacles can potentially be
         obstaclePair.position.y = obstaclePair.position.y +  randomPosition
         obstaclePair.addChild(bball)

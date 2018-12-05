@@ -28,12 +28,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var player = SKSpriteNode()
     var repeatPlayerAction = SKAction()
     
-    // CHRIS'S CODE
     var stephButton = SKSpriteNode()
     var larryButton = SKSpriteNode()
     var wadeButton = SKSpriteNode()
     var playerChoice = "larry"
-    // ENDS HERE
 
     override func didMove(to view: SKView) {
         createScene()
@@ -43,7 +41,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if didGameStarted == false{
             
-            // CHRIS'S CODE
             for touch in touches{
                 let location = touch.location(in: self)
                 if (stephButton.contains(location)){
@@ -59,8 +56,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
                     print ("chose wade")
                 }
             }
-            // ENDS HERE
-            
             
             
             didGameStarted =  true // check to see if the game started
@@ -71,7 +66,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             
             
             
-            // CHRIS'S CODE
             stephButton.run(SKAction.scale(to: 1, duration: 0.2), completion: {
                 self.stephButton.removeFromParent()
             })
@@ -81,26 +75,23 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             wadeButton.run(SKAction.scale(to: 1, duration: 0.2), completion: {
                 self.wadeButton.removeFromParent()
             })
-            // ENDS HERE
 
             
             
             taptoplayLabel.removeFromParent() // removes the play button
             // self.player.run(repeatPlayerAction) potentially remove this (just animates the bird)
             
-            //1
             let spawn = SKAction.run({
                 () in
                 self.obstaclePair = self.createObstacles()
                 self.addChild(self.obstaclePair)
             })
-            //2
             
             let delay = SKAction.wait(forDuration: 1.5)
             let SpawnDelay = SKAction.sequence([spawn, delay])
             let spawnDelayForever = SKAction.repeatForever(SpawnDelay)
             self.run(spawnDelayForever)
-            //3
+
             let distance = CGFloat(self.frame.width + obstaclePair.frame.width)
             let moveObstacles = SKAction.moveBy(x: -distance - 50, y: 0, duration: TimeInterval(0.008 * distance))
             let removeObstacles = SKAction.removeFromParent()
@@ -118,7 +109,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         for touch in touches{
             let location = touch.location(in: self)
-            //1
+
             if didDied == true{
                 if restartButton.contains(location){
                     if UserDefaults.standard.object(forKey: "highestScore") != nil {
@@ -226,11 +217,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         appLogo()
         
-        // CHRIS'S CODE
         createStephButton()
         createLarryButton()
         createWadeButton()
-        // ENDS HERE
 
         taptoplayLabel = playGame()
         self.addChild(taptoplayLabel)
