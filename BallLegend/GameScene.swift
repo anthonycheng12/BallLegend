@@ -95,6 +95,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
                 self.addChild(self.obstaclePair)
             })
             //2
+            
             let delay = SKAction.wait(forDuration: 1.5)
             let SpawnDelay = SKAction.sequence([spawn, delay])
             let spawnDelayForever = SKAction.repeatForever(SpawnDelay)

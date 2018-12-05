@@ -94,7 +94,7 @@ extension GameScene {
         stephButton = SKSpriteNode()
         stephButton = SKSpriteNode(imageNamed: "steph")
         stephButton.size = CGSize(width: 250, height: 150)
-        stephButton.position = CGPoint(x:self.frame.midX-125, y:self.frame.midY-300)
+        stephButton.position = CGPoint(x:self.frame.midX-125, y:self.frame.midY-350)
         stephButton.setScale(0.5)
         self.addChild(stephButton)
         stephButton.run(SKAction.scale(to: 1.0, duration: 0.3))
@@ -104,7 +104,7 @@ extension GameScene {
         larryButton = SKSpriteNode()
         larryButton = SKSpriteNode(imageNamed: "larry")
         larryButton.size = CGSize(width: 300, height: 200)
-        larryButton.position = CGPoint(x:self.frame.midX+35, y:self.frame.midY-200)
+        larryButton.position = CGPoint(x:self.frame.midX+35, y:self.frame.midY-300)
         larryButton.setScale(0.5)
         self.addChild(larryButton)
         larryButton.run(SKAction.scale(to: 1.0, duration: 0.3))
@@ -114,7 +114,7 @@ extension GameScene {
         wadeButton = SKSpriteNode()
         wadeButton = SKSpriteNode(imageNamed: "wade")
         wadeButton.size = CGSize(width: 250, height: 150)
-        wadeButton.position = CGPoint(x:self.frame.midX+125, y:self.frame.midY-300)
+        wadeButton.position = CGPoint(x:self.frame.midX+125, y:self.frame.midY-350)
         wadeButton.setScale(0.5)
         self.addChild(wadeButton)
         wadeButton.run(SKAction.scale(to: 1.0, duration: 0.3))
@@ -124,11 +124,11 @@ extension GameScene {
     // adds tap to play logo below the player
     func playGame() -> SKLabelNode {
         let taptoplayLabel = SKLabelNode()
-        taptoplayLabel.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
-        taptoplayLabel.text = "Choose a legend!!!"
+        taptoplayLabel.position = CGPoint(x:self.frame.midX, y:self.frame.midY-175)
+        taptoplayLabel.text = "Choose a legend below!"
         taptoplayLabel.fontColor = UIColor.white
         taptoplayLabel.zPosition = 5
-        taptoplayLabel.fontSize = 20
+        taptoplayLabel.fontSize = 25
         taptoplayLabel.fontName = "Courier-BoldOblique"
         return taptoplayLabel
     }
