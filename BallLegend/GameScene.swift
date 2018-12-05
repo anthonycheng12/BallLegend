@@ -28,19 +28,62 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var player = SKSpriteNode()
     var repeatPlayerAction = SKAction()
     
+    // CHRIS'S CODE
+    var stephButton = SKSpriteNode()
+    var larryButton = SKSpriteNode()
+    var wadeButton = SKSpriteNode()
+    var playerChoice = "larry"
+    // ENDS HERE
+
     override func didMove(to view: SKView) {
         createScene()
-        
-        
+    
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if didGameStarted == false{
+            
+            
+            // CHRIS'S CODE
+            for touch in touches{
+                let location = touch.location(in: self)
+                if (stephButton.contains(location)){
+                    playerChoice = "steph"
+                    print ("chose steph")
+                }
+                else if (larryButton.contains(location)){
+                    playerChoice = "larry"
+                    print ("chose larry")
+                }
+                else if (wadeButton.contains(location)){
+                    playerChoice = "wade"
+                    print ("chose wade")
+                }
+            }
+            // ENDS HERE
+            
             didGameStarted =  true // check to see if the game started
             player.physicsBody?.affectedByGravity = true // have the player affected by gravity
             logoImage.run(SKAction.scale(to: 0.5, duration: 0.2), completion: {
                 self.logoImage.removeFromParent()
             }) // removes the logo
+            
+            
+            
+            // CHRIS'S CODE
+            stephButton.run(SKAction.scale(to: 1, duration: 0.2), completion: {
+                self.stephButton.removeFromParent()
+            })
+            larryButton.run(SKAction.scale(to: 1, duration: 0.2), completion: {
+                self.larryButton.removeFromParent()
+            })
+            wadeButton.run(SKAction.scale(to: 1, duration: 0.2), completion: {
+                self.wadeButton.removeFromParent()
+            })
+            // ENDS HERE
+
+            
+            
             taptoplayLabel.removeFromParent() // removes the play button
             // self.player.run(repeatPlayerAction) potentially remove this (just animates the bird)
             
@@ -165,9 +208,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         } // this creates 2 backgrounds that are side by side and helps create the illusion of a neverending background
         
         
-        playerSprites.append(playerAtlas.textureNamed("steph")) // shows the player
+        playerSprites.append(playerAtlas.textureNamed(playerChoice)) // shows the player
         
-        self.player = createPlayer()
+        self.player = createPlayer(legendChoice: playerChoice)
         self.addChild(player)
         
         let animatePlayer = SKAction.animate(with: self.playerSprites, timePerFrame: 0.1)
@@ -181,6 +224,12 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         
         appLogo()
         
+        // CHRIS'S CODE
+        createStephButton()
+        createLarryButton()
+        createWadeButton()
+        // ENDS HERE
+
         taptoplayLabel = playGame()
         self.addChild(taptoplayLabel)
     }

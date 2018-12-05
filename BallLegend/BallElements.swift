@@ -16,8 +16,8 @@ struct CollisionBitMask {
 }
 
 extension GameScene {
-    func createPlayer() -> SKSpriteNode {
-        let player = SKSpriteNode(texture: SKTextureAtlas(named:"player").textureNamed("steph"))
+    func createPlayer(legendChoice: String) -> SKSpriteNode {
+        let player = SKSpriteNode(texture: SKTextureAtlas(named:"player").textureNamed(playerChoice))
         player.size = CGSize(width: 60, height: 70) // sets height and width of the character
         player.position = CGPoint(x:self.frame.midX, y:self.frame.midY) // sets the player in the middle of the screen
         player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.width / 2) // allows the player to behave like a real world object which is bothered by gravity and collisions
@@ -89,11 +89,43 @@ extension GameScene {
         logoImage.run(SKAction.scale(to: 1.0, duration: 0.3))
     }
     
+    // CHRIS'S CODE
+    func createStephButton() {
+        stephButton = SKSpriteNode()
+        stephButton = SKSpriteNode(imageNamed: "steph")
+        stephButton.size = CGSize(width: 250, height: 150)
+        stephButton.position = CGPoint(x:self.frame.midX-125, y:self.frame.midY-300)
+        stephButton.setScale(0.5)
+        self.addChild(stephButton)
+        stephButton.run(SKAction.scale(to: 1.0, duration: 0.3))
+    }
+    
+    func createLarryButton() {
+        larryButton = SKSpriteNode()
+        larryButton = SKSpriteNode(imageNamed: "larry")
+        larryButton.size = CGSize(width: 300, height: 200)
+        larryButton.position = CGPoint(x:self.frame.midX+35, y:self.frame.midY-200)
+        larryButton.setScale(0.5)
+        self.addChild(larryButton)
+        larryButton.run(SKAction.scale(to: 1.0, duration: 0.3))
+    }
+    
+    func createWadeButton() {
+        wadeButton = SKSpriteNode()
+        wadeButton = SKSpriteNode(imageNamed: "wade")
+        wadeButton.size = CGSize(width: 250, height: 150)
+        wadeButton.position = CGPoint(x:self.frame.midX+125, y:self.frame.midY-300)
+        wadeButton.setScale(0.5)
+        self.addChild(wadeButton)
+        wadeButton.run(SKAction.scale(to: 1.0, duration: 0.3))
+    }
+    //ENDS HERE
+    
     // adds tap to play logo below the player
     func playGame() -> SKLabelNode {
         let taptoplayLabel = SKLabelNode()
-        taptoplayLabel.position = CGPoint(x:self.frame.midX, y:self.frame.midY - 100)
-        taptoplayLabel.text = "Tap to play"
+        taptoplayLabel.position = CGPoint(x:self.frame.midX, y:self.frame.midY)
+        taptoplayLabel.text = "Choose a legend!!!"
         taptoplayLabel.fontColor = UIColor.white
         taptoplayLabel.zPosition = 5
         taptoplayLabel.fontSize = 20
