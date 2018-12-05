@@ -10,7 +10,7 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene , SKPhysicsContactDelegate {
-    
+
     var didGameStarted = Bool(false)
     var didDied = Bool(false)
     let buzzSound = SKAction.playSoundFileNamed("buzzer.mp3", waitForCompletion: false)
@@ -43,7 +43,6 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if didGameStarted == false{
             
-            
             // CHRIS'S CODE
             for touch in touches{
                 let location = touch.location(in: self)
@@ -61,6 +60,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
                 }
             }
             // ENDS HERE
+            
+            
             
             didGameStarted =  true // check to see if the game started
             player.physicsBody?.affectedByGravity = true // have the player affected by gravity
