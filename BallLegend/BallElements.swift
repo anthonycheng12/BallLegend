@@ -147,7 +147,7 @@ extension GameScene {
         
         obstaclePair.zPosition = 1
         // 3
-        let randomPosition = random(min: -200, max: 200)
+        let randomPosition = CGFloat.random(min: -175, max: 200) // higher the number the longer the obstacles can potentially be
         obstaclePair.position.y = obstaclePair.position.y +  randomPosition
         obstaclePair.addChild(bball)
         
@@ -156,12 +156,4 @@ extension GameScene {
         return obstaclePair
     }
     
-    func random() -> CGFloat{
-        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
-    }
-    
-    func random(min : CGFloat, max : CGFloat) -> CGFloat{
-        return random() * (max - min) + min
-        //return CGFloat.random(in: min ..< max)
-    }
 }

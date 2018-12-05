@@ -20,6 +20,7 @@
 		32AE51A121B5D4C100C76F6E /* buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 32AE51A021B5D4C100C76F6E /* buzzer.mp3 */; };
 		32AE51A321B5D83400C76F6E /* BallElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AE51A221B5D83400C76F6E /* BallElements.swift */; };
 		32AE51A521B7269000C76F6E /* player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 32AE51A421B7269000C76F6E /* player.atlas */; };
+		32AE51A921B78BC100C76F6E /* Rand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AE51A821B78BC100C76F6E /* Rand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		32AE51A021B5D4C100C76F6E /* buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buzzer.mp3; sourceTree = "<group>"; };
 		32AE51A221B5D83400C76F6E /* BallElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallElements.swift; sourceTree = "<group>"; };
 		32AE51A421B7269000C76F6E /* player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = player.atlas; sourceTree = "<group>"; };
+		32AE51A821B78BC100C76F6E /* Rand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				32AE516E21B5D2DE00C76F6E /* Actions.sks */,
 				32AE517021B5D2DE00C76F6E /* GameScene.swift */,
 				32AE51A221B5D83400C76F6E /* BallElements.swift */,
+				32AE51A821B78BC100C76F6E /* Rand.swift */,
 				32AE517221B5D2DE00C76F6E /* GameViewController.swift */,
 				32AE51A421B7269000C76F6E /* player.atlas */,
 				32AE517421B5D2DE00C76F6E /* Main.storyboard */,
@@ -281,6 +284,7 @@
 				32AE517121B5D2DE00C76F6E /* GameScene.swift in Sources */,
 				32AE51A321B5D83400C76F6E /* BallElements.swift in Sources */,
 				32AE517321B5D2DE00C76F6E /* GameViewController.swift in Sources */,
+				32AE51A921B78BC100C76F6E /* Rand.swift in Sources */,
 				32AE516B21B5D2DE00C76F6E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
