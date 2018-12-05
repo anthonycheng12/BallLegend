@@ -1,11 +1,3 @@
-//
-//  Rand.swift
-//  BallLegend
-//
-//  Created by Anthony Cheng on 12/4/18.
-//  Copyright © 2018 Anthony Cheng. All rights reserved.
-//
-
 import Foundation
 import CoreGraphics
 

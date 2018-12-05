@@ -1,11 +1,3 @@
-//
-//  GameScene.swift
-//  BallLegend
-//
-//  Created by Anthony Cheng on 12/3/18.
-//  Copyright © 2018 Anthony Cheng. All rights reserved.
-//
-
 import SpriteKit
 import GameplayKit
 
