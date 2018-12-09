@@ -21,13 +21,13 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     var repeatPlayerAction = SKAction()
     
     var stephButton = SKSpriteNode()
-    var larryButton = SKSpriteNode()
+//    var larryButton = SKSpriteNode()
     var wadeButton = SKSpriteNode()
-    var playerChoice = "larry"
+    var playerChoice = "steph"
 
     override func didMove(to view: SKView) {
         createScene()
-    
+        view.showsPhysics = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -39,10 +39,10 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
                     playerChoice = "steph"
                     print ("chose steph")
                 }
-                else if (larryButton.contains(location)){
-                    playerChoice = "larry"
-                    print ("chose larry")
-                }
+//                else if (larryButton.contains(location)){
+//                    playerChoice = "larry"
+//                    print ("chose larry")
+//                }
                 else if (wadeButton.contains(location)){
                     playerChoice = "wade"
                     print ("chose wade")
@@ -61,9 +61,9 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
             stephButton.run(SKAction.scale(to: 1, duration: 0.2), completion: {
                 self.stephButton.removeFromParent()
             })
-            larryButton.run(SKAction.scale(to: 1, duration: 0.2), completion: {
-                self.larryButton.removeFromParent()
-            })
+//            larryButton.run(SKAction.scale(to: 1, duration: 0.2), completion: {
+//                self.larryButton.removeFromParent()
+//            })
             wadeButton.run(SKAction.scale(to: 1, duration: 0.2), completion: {
                 self.wadeButton.removeFromParent()
             })
@@ -138,6 +138,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         let firstBody = contact.bodyA
         let secondBody = contact.bodyB
         
+        // checking if player contacts ground or obstacle
         if firstBody.categoryBitMask == CollisionBitMask.groundCategory && secondBody.categoryBitMask == CollisionBitMask.obstacleCategory || firstBody.categoryBitMask == CollisionBitMask.obstacleCategory && secondBody.categoryBitMask == CollisionBitMask.playerCategory || firstBody.categoryBitMask == CollisionBitMask.playerCategory && secondBody.categoryBitMask == CollisionBitMask.groundCategory || firstBody.categoryBitMask == CollisionBitMask.groundCategory && secondBody.categoryBitMask == CollisionBitMask.playerCategory{
             enumerateChildNodes(withName: "obstaclePair", using: ({
                 (node, error) in
@@ -149,12 +150,16 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
                 restartGame()
                 self.player.removeAllActions()
             }
-        } else if firstBody.categoryBitMask == CollisionBitMask.playerCategory && secondBody.categoryBitMask == CollisionBitMask.basketballCategory {
+        }
+        // checking if player contacts the basketball
+        else if firstBody.categoryBitMask == CollisionBitMask.playerCategory && secondBody.categoryBitMask == CollisionBitMask.basketballCategory {
             run(buzzSound)
             score += 1
             scoreLabel.text = "\(score)"
             secondBody.node?.removeFromParent()
-        } else if firstBody.categoryBitMask == CollisionBitMask.basketballCategory && secondBody.categoryBitMask == CollisionBitMask.playerCategory {
+        }
+        // checking if basketball contacts the player
+        else if firstBody.categoryBitMask == CollisionBitMask.basketballCategory && secondBody.categoryBitMask == CollisionBitMask.playerCategory {
             run(buzzSound)
             score += 1
             scoreLabel.text = "\(score)"
@@ -182,6 +187,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self // helps detect contact and collisions
         // self.backgroundColor = SKColor(red: 80.0/255.0, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1.0)
         
+        // for each i in range from 0 to less than 2
         for i in 0..<2
         {
             let background = SKSpriteNode(imageNamed: "bg")
@@ -198,8 +204,8 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         self.player = createPlayer(legendChoice: playerChoice)
         self.addChild(player)
         
-        let animatePlayer = SKAction.animate(with: self.playerSprites, timePerFrame: 0.1)
-        self.repeatPlayerAction = SKAction.repeatForever(animatePlayer)
+//        let animatePlayer = SKAction.animate(with: self.playerSprites, timePerFrame: 0.1)
+//        self.repeatPlayerAction = SKAction.repeatForever(animatePlayer)
         
         scoreLabel = yourScore()
         self.addChild(scoreLabel)
@@ -210,7 +216,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
         appLogo()
         
         createStephButton()
-        createLarryButton()
+//        createLarryButton()
         createWadeButton()
 
         taptoplayLabel = playGame()

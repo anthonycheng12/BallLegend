@@ -9,11 +9,30 @@ struct CollisionBitMask {
 
 extension GameScene {
     func createPlayer(legendChoice: String) -> SKSpriteNode {
-        let player = SKSpriteNode(texture: SKTextureAtlas(named:"player").textureNamed(playerChoice))
-        player.size = CGSize(width: 60, height: 70) // sets height and width of the character
+        
+//         let player = SKSpriteNode(texture: SKTextureAtlas(named:"player").textureNamed(playerChoice))
+//
+//        let playerTexture = SKTexture(imageNamed: playerChoice);
+//        let player=SKSpriteNode(texture: playerTexture)
+//
+        // why do we need to declare set playerTexture?
+        let player = SKSpriteNode(imageNamed: playerChoice)
+        
+        player.size = CGSize(width: 120, height: 140) // sets height and width of the character
         player.position = CGPoint(x:self.frame.midX, y:self.frame.midY) // sets the player in the middle of the screen
-        player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.width / 2) // allows the player to behave like a real world object which is bothered by gravity and collisions
-        player.physicsBody?.linearDamping = 1.1
+        
+         player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.width / 4) // allows the player to behave like a real world object which is bothered by gravity and collisions
+    
+        // V2 for creating physicsbody
+//        player.physicsBody = SKPhysicsBody(texture: playerTexture,
+//                                           size: CGSize(width: player.size.width,
+//                                                        height: player.size.height))
+        
+        // V3 for creating physicsbody
+//        player.physicsBody = SKPhysicsBody(texture: player.texture!,
+//                                           size: player.texture!.size())
+        
+        player.physicsBody?.linearDamping = 1.0
         player.physicsBody?.restitution = 0
         player.physicsBody?.categoryBitMask = CollisionBitMask.playerCategory // we notice collisions by comparing the category bit masks
         player.physicsBody?.collisionBitMask = CollisionBitMask.obstacleCategory | CollisionBitMask.groundCategory // allows for the detection of ground/obstacle collision
@@ -91,21 +110,21 @@ extension GameScene {
         stephButton.run(SKAction.scale(to: 1.0, duration: 0.3))
     }
     
-    func createLarryButton() {
-        larryButton = SKSpriteNode()
-        larryButton = SKSpriteNode(imageNamed: "larry")
-        larryButton.size = CGSize(width: 300, height: 200)
-        larryButton.position = CGPoint(x:self.frame.midX+35, y:self.frame.midY-300)
-        larryButton.setScale(0.5)
-        self.addChild(larryButton)
-        larryButton.run(SKAction.scale(to: 1.0, duration: 0.3))
-    }
+//    func createLarryButton() {
+//        larryButton = SKSpriteNode()
+//        larryButton = SKSpriteNode(imageNamed: "larry")
+//        larryButton.size = CGSize(width: 300, height: 200)
+//        larryButton.position = CGPoint(x:self.frame.midX+35, y:self.frame.midY-300)
+//        larryButton.setScale(0.5)
+//        self.addChild(larryButton)
+//        larryButton.run(SKAction.scale(to: 1.0, duration: 0.3))
+//    }
     
     func createWadeButton() {
         wadeButton = SKSpriteNode()
         wadeButton = SKSpriteNode(imageNamed: "wade")
         wadeButton.size = CGSize(width: 250, height: 150)
-        wadeButton.position = CGPoint(x:self.frame.midX+125, y:self.frame.midY-350)
+        wadeButton.position = CGPoint(x:self.frame.midX+110, y:self.frame.midY-325)
         wadeButton.setScale(0.5)
         self.addChild(wadeButton)
         wadeButton.run(SKAction.scale(to: 1.0, duration: 0.3))
@@ -125,9 +144,9 @@ extension GameScene {
     
     func createObstacles() -> SKNode  {
 
-        let bball = SKSpriteNode(imageNamed: "ball")
-        bball.size = CGSize(width: 40, height: 40)
-        bball.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 2)
+        let bball = SKSpriteNode(imageNamed: "hoop2")
+        bball.size = CGSize(width: 100, height: 100)
+        bball.position = CGPoint(x: self.frame.width + 45, y: self.frame.height / 2 - 50)
         bball.physicsBody = SKPhysicsBody(rectangleOf: bball.size)
         bball.physicsBody?.affectedByGravity = false
         bball.physicsBody?.isDynamic = false
@@ -139,21 +158,22 @@ extension GameScene {
         obstaclePair = SKNode()
         obstaclePair.name = "obstaclePair"
         
-        let topObs = SKSpriteNode(imageNamed: "shaq")
-        let botObs = SKSpriteNode(imageNamed: "shaq")
+//        let topObs = SKSpriteNode(imageNamed: "shaq")
+        let botObs = SKSpriteNode(imageNamed: "signpost")
+        botObs.size = CGSize(width: 40, height: 600);
         
-        topObs.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 2 + 400)
-        botObs.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 2 - 400) // the add and minus contributes to the space between the top obstacle and bottom obstacle
+//        topObs.position = CGPoint(x: self.frame.width + 25, y: self.frame.height / 2 + 400)
+        botObs.position = CGPoint(x: self.frame.width + 50, y: self.frame.height/2 - 400) // the add and minus contributes to the space between the top obstacle and bottom obstacle
         
-        topObs.setScale(0.5)
-        botObs.setScale(0.5)
+//        topObs.setScale(0.5)
+        botObs.setScale(1.0)
         
-        topObs.physicsBody = SKPhysicsBody(rectangleOf: topObs.size)
-        topObs.physicsBody?.categoryBitMask = CollisionBitMask.obstacleCategory
-        topObs.physicsBody?.collisionBitMask = CollisionBitMask.playerCategory
-        topObs.physicsBody?.contactTestBitMask = CollisionBitMask.playerCategory
-        topObs.physicsBody?.isDynamic = false
-        topObs.physicsBody?.affectedByGravity = false
+//        topObs.physicsBody = SKPhysicsBody(rectangleOf: topObs.size)
+//        topObs.physicsBody?.categoryBitMask = CollisionBitMask.obstacleCategory
+//        topObs.physicsBody?.collisionBitMask = CollisionBitMask.playerCategory
+//        topObs.physicsBody?.contactTestBitMask = CollisionBitMask.playerCategory
+//        topObs.physicsBody?.isDynamic = false
+//        topObs.physicsBody?.affectedByGravity = false
         
         botObs.physicsBody = SKPhysicsBody(rectangleOf: botObs.size)
         botObs.physicsBody?.categoryBitMask = CollisionBitMask.obstacleCategory
@@ -162,15 +182,16 @@ extension GameScene {
         botObs.physicsBody?.isDynamic = false
         botObs.physicsBody?.affectedByGravity = false
         
-        topObs.zRotation = CGFloat(Double.pi)
+//        topObs.zRotation = CGFloat(Double.pi)
         
-        obstaclePair.addChild(topObs)
+//        obstaclePair.addChild(topObs)
         obstaclePair.addChild(botObs)
         
         obstaclePair.zPosition = 1
 
         let randomPosition = CGFloat.random(min: -175, max: 200) // higher the number the longer the obstacles can potentially be
-        obstaclePair.position.y = obstaclePair.position.y +  randomPosition
+        print (randomPosition)
+        obstaclePair.position.y = obstaclePair.position.y + randomPosition
         obstaclePair.addChild(bball)
         
         obstaclePair.run(moveAndRemove)
