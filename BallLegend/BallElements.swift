@@ -13,7 +13,7 @@ extension GameScene {
         self.physicsBody?.categoryBitMask = CollisionBitMask.groundCategory
         self.physicsBody?.collisionBitMask = CollisionBitMask.playerCategory // to get information on contact with player and obstacle
         self.physicsBody?.contactTestBitMask = CollisionBitMask.playerCategory // to get information on contact with player and obstacle
-        self.physicsBody?.isDynamic = false
+        self.physicsBody?.isDynamic = false // if set to false then the character is not going to move if hit but for true then it will move if hit 
         self.physicsBody?.affectedByGravity = false // prevents player from falling off the screen
         
         self.physicsWorld.contactDelegate = self // helps detect contact and collisions

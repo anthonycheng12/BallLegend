@@ -3,18 +3,18 @@ import GameplayKit
 
 class GameScene: SKScene , SKPhysicsContactDelegate {
     
-    // MARK: - Properties
+    // Properties
     
     let buzzSound = SKAction.playSoundFileNamed("buzzer.mp3", waitForCompletion: false)
     
-    // MARK: - State
+    // State
     
     var started: Bool = false
     var alive: Bool = true
     var score: Int = 0
     var playerChoice = "steph"
     
-    // MARK: - Sprites
+    // Sprites
     
     var scoreLabel = SKLabelNode()
     var highscoreLabel = SKLabelNode()
@@ -31,7 +31,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         createScene()
-        view.showsPhysics = true
+//        view.showsPhysics = true
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
