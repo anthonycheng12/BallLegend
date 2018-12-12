@@ -48,7 +48,7 @@ class GameScene: SKScene , SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered to move the background slowly 2 pixels to the left each time the function is called
         if (started && alive) {
-            moveSprites()
+            moveBackground()
         }
     }
     
